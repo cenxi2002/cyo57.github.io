@@ -10,7 +10,7 @@
     <meta name="msvalidate.01" content="8EFD5A1775011DD444E6F5CABFEDC312">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' *.tezign.com; script-src 'self' *.tezign.com at.alicdn.com *.wx.qq.com *.weibo.com hm.baidu.com 'unsafe-eval' 'unsafe-inline'; style-src * 'unsafe-inline'; img-src * blob: data:; connect-src * 'self' blob:; font-src 'self' *.tezign.com data:; object-src *; media-src *; frame-src *;">
     <meta http-equiv="content-language" content="zh-cn">
-    <link rel="shortcut icon" type="image/x-icon" href="https://itg-tezign-files.tezign.com/sop/public/1/223281b42/muselink.png">
+
     <style>
       html {
         height: 100%;
@@ -110,14 +110,14 @@
                       <div>
                           <div>
                               <div class="social-account___hQGmy">
-                                  <img src="img/lock-line.png" />
+                                  <img src="img/lock-line.svg" />
                               </div>
                           </div>
                       </div>
                       <div>
                         <div>
                             <div class="social-account___hQGmy">
-                                <img src="img/shut-down-line.png" />
+                                <img src="img/shut-down-line.svg" />
                             </div>
                         </div>
                     </div>
@@ -125,9 +125,9 @@
                   <div class="container-social___1Xykn">
                       <div class="link_fortext___3sw_C link_fortext_isHeavier___3euox">控制台</div>
                       <div class="link_fortext___3sw_C">开关机时间</div>
-                      <div class="social-link-wrapper___3bfXn cp___2jMmn">
+                      <div id="startTimeButton" class="social-link-wrapper___3bfXn cp___2jMmn time">
                           <div class="social-link-icon-wrapper___1me36">
-                              <img src="img/time-fill.png" />
+                              <img src="img/time-fill.svg" />
                           </div>
                           <div class="social-link-title-wrapper___TdyY6">
                               <div>2022-09-18 14:21:20</div>
@@ -135,7 +135,7 @@
                       </div>
                       <div class="social-link-wrapper___3bfXn cp___2jMmn">
                           <div class="social-link-icon-wrapper___1me36">
-                              <img src="img/timer-fill.png" />
+                              <img src="img/timer-fill.svg" />
                           </div>
                           <div class="social-link-title-wrapper___TdyY6">
                               <div>已运行 114 分钟</div>
@@ -144,7 +144,7 @@
                       <div class="link_fortext___3sw_C">状态</div>
                       <div class="social-link-wrapper___3bfXn cp___2jMmn">
                           <div class="social-link-icon-wrapper___1me36">
-                              <img src="img/shield-check-line.png" />
+                              <img src="img/shield-check-line.svg" />
                           </div>
                           <div class="social-link-title-wrapper___TdyY6">
                               <div>已锁定</div>
@@ -152,7 +152,7 @@
                       </div>
                       <div class="social-link-wrapper___3bfXn cp___2jMmn">
                           <div class="social-link-icon-wrapper___1me36">
-                              <img src="img/shield-check-line.png" />
+                              <img src="img/shield-check-line.svg" />
                           </div>
                           <div class="social-link-title-wrapper___TdyY6">
                               <div>无留言</div>
@@ -161,16 +161,15 @@
                       <div class="link_fortext___3sw_C">附加功能</div>
                       <div class="social-link-wrapper___3bfXn cp___2jMmn">
                           <div class="social-link-icon-wrapper___1me36">
-                              <img src="img/shield-check-line.png" />
+                              <img src="img/shield-check-line.svg" />
                           </div>
                           <div class="social-link-title-wrapper___TdyY6">
                               <div>每30分钟锁定15分钟</div>
                           </div>
                           <div class="social-link-icon-expand___1NZxj">
-                              <img src="img/shield-check-line.png" />
+                              <img src="img/shield-check-line.svg" />
                           </div>
                       </div>
-                      <div class="social_link_video_cintainer___3J3fp" style="height:;overflow:"></div>
                   </div>
               </div>
           </div>
@@ -273,41 +272,6 @@
       }
     </script>
     <script src="https://itg-tezign-files.tezign.com/sop/public/muselink/dark/1663314936261/umi.js"></scrip -->
-  <script>
-    function ajax(opt) {
-        opt = opt || {};
-        opt.method = opt.method.toUpperCase() || 'POST';
-        opt.url = opt.url || '';
-        opt.async = opt.async || true;
-        opt.data = opt.data || null;
-        opt.success = opt.success || function () {};
-        var xmlHttp = null;
-        if (XMLHttpRequest) {
-            xmlHttp = new XMLHttpRequest();
-        }
-        else {
-            xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
-        }var params = [];
-        for (var key in opt.data){
-            params.push(key + '=' + opt.data[key]);
-        }
-        var postData = params.join('&');
-        if (opt.method.toUpperCase() === 'POST') {
-            xmlHttp.open(opt.method, opt.url, opt.async);
-            xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-            xmlHttp.send(postData);
-        }
-        else if (opt.method.toUpperCase() === 'GET') {
-            xmlHttp.open(opt.method, opt.url + '?' + postData, opt.async);
-            xmlHttp.send(null);
-        } 
-        xmlHttp.onreadystatechange = function () {
-            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                opt.success(JSON.parse( xmlHttp.responseText));//如果不是json数据可以去掉json转换
-            }
-        };
-    }
-
-  </script>
+      <script src="js/pcmanager.js"></script>
 
 </body></html>
