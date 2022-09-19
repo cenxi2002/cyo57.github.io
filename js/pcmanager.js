@@ -1,8 +1,14 @@
 $(document).ready(function () {
-    document.getElementById("startTimeButton").onclick = function () {
+    
+    /*document.getElementById("startTimeButton").onclick = function () {
         var a = $.get('https://open.iii.pics/iiimimi/detail')
         alert(a);
-    }
+    }*/
+    $(document.getElementById("startTimeButton")).click(function(){
+        $.get("https://open.iii.pics/iiimimi/detail",function(data,status){
+            alert("数据: " + data + "\n状态: " + status);
+        });
+    });
     /*
     * @url: url link
     * @action: "get", "post"
