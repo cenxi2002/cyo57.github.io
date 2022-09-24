@@ -1,10 +1,8 @@
 $(document).ready(function () {
-
     /*document.getElementById("startTimeButton").onclick = function () {
         var a = $.get('https://open.iii.pics/iiimimi/detail')
         alert(a);
     }*/
-
     $.get("https://open.iii.pics/iiimimi/detail", function (data, status) {
         obj = JSON.stringify(data) //转换为Json字符串
         obj = JSON.parse(obj) //转换为Json对象
@@ -38,40 +36,12 @@ $(document).ready(function () {
         }else{
             $("#textMessage").text("留言未设置")
         }
-
         //});
     });
 
-    /*
-    * @url: url link
-    * @action: "get", "post"
-    * @json: {'key1':'value2', 'key2':'value2'} 
-    */
+    $("#btnLockStatus").click(function(){
+        console.log("btnLock clicked")
+        alert("你不是管理员")
+      });
 
 });
-
-/*
-JavaScript Form GET/POST
-function doFormRequest(url, action, json) {
-    var form = document.createElement("form");
-    form.action = url;
-    form.method = action;
-    // append input attribute and valus
-    for (var key in json) {
-        if (json.hasOwnProperty(key)) {
-            var val = json[key];
-            input = document.createElement("input");
-            input.type = "hidden";
-            input.name = key;
-            input.value = val;
-            // append key-value to form
-            form.appendChild(input)
-        }
-    }
-    // send post request
-    document.body.appendChild(form);
-    form.submit();
-    // remove form from document
-    document.body.removeChild(form);
-}
-*/
