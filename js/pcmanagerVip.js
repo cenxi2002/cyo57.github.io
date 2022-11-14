@@ -53,10 +53,10 @@ $(document).ready(function () {
             obj = JSON.parse(obj) //转换为Json对象
             console.log("get: " + obj)
         });
-        if(obj.bootAllow == "0"){
+        if (obj.bootAllow == "0") {
             // 目前是锁定, 将解锁
             postdata = { "k": "bootAllow", "v": "1" }
-        }else{
+        } else {
             postdata = { "k": "bootAllow", "v": "0" }
         }
 
@@ -66,5 +66,8 @@ $(document).ready(function () {
         });
         get_info()
     });
+    $("btnOffile").click(function () {
+        window.location.replace("http://yunshangbandao.top/PcManagerOffline.html");
+    })
 
 });
