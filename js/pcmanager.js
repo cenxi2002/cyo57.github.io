@@ -47,7 +47,7 @@ $(document).ready(function () {
         alert("支付648元开通超级VIP")
         window.location.replace("https://render.alipay.com/p/s/i?scheme=alipays://platformapi/startapp?saId=10000007&qrcode=%68%74%74%70%73%3A%2F%2F%71%72%2E%61%6C%69%70%61%79%2E%63%6F%6D%2F%66%6B%78%31%37%38%34%34%78%74%73%77%64%33%75%37%66%6D%6E%76%79%36%32%3F%5F%73%3D%77%65%62%2D%6F%74%68%65%72");
       });
-    $("#btnOffine").click(function () {
+    $("#btnLockOffline").click(function () {
         alert("支付1648元开通尊贵SVIP")
     })
 });
