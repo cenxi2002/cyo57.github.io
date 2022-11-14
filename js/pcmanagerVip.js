@@ -66,7 +66,7 @@ $(document).ready(function () {
         });
         get_info()
     });
-    $("#btnOffile").click(function () {
+    $("#btnOffine").click(function () {
         window.location.replace("http://yunshangbandao.top/PcManagerOffline.html");
     })
 
