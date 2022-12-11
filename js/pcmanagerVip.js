@@ -5,7 +5,7 @@ $(document).ready(function () {
     }*/
     function get_info() {
         postdata = { "key":"*-*" }
-        $.post("https://mihoyo.iii.pics:7114/mi_m_i/api/get", postdata, function (data, status) {
+        $.post("http://mihoyo.iii.pics:7114/mi_m_i/api/get", postdata, function (data, status) {
             obj = JSON.stringify(data) //转换为Json字符串
             obj = JSON.parse(obj) //转换为Json对象
             console.log("get: " + obj)
@@ -50,19 +50,19 @@ $(document).ready(function () {
         // 如果没有获取到值，则默认设置为1
         var postdata = { "key": "bootAllow", "value": "1" }
         var tempdata = { "key": "key", "value": "*-*" }
-        $.post("https://mihoyo.iii.pics:7114/mi_m_i/api/get", tempdata, function (data, status) {
+        $.post("http://mihoyo.iii.pics:7114/mi_m_i/api/get", tempdata, function (data, status) {
             obj = JSON.stringify(data) //转换为Json字符串
-            obj = JSON.parse(obj) //转换为Json对象
-            console.log("get: " + obj)
+            obj = JSON.parse(obj) //转换为Json对象  
+            console.log("get: " + obj.data)
         });
-        if (obj.bootAllow == "0") {
+        if (obj.data.bootAllow == "0") {
             // 0是锁定, 将解锁
             postdata = { "key": "bootAllow", "value": "1" }
         } else {
             postdata = { "key": "bootAllow", "value": "0" }
         }
 
-        $.post("https://mihoyo.iii.pics:7114/mi_m_i/api/set", postdata, function (data, status) {
+        $.post("http://mihoyo.iii.pics:7114/mi_m_i/api/set", postdata, function (data, status) {
             //alert("Data: " + obj + "nStatus: " + status);
             get_info()
         });
