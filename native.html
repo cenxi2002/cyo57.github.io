@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>So Boring...</title>
+  <title>Hi Native!</title>
   <style>
     body {
       margin: 0;
@@ -47,6 +47,11 @@
       margin: 0 auto;
     }
 
+    #copyBtn {
+      margin-top: 10px;
+    }
+
+
     .form+.form {
       margin-top: 20px;
     }
@@ -89,7 +94,8 @@
       <input type="text" id="input-8" placeholder="累计">
       <input type="text" id="input-9" placeholder="浩浩今日">
       <input type="text" id="input-10" placeholder="累计">
-      <button type="submit">提交</button>
+      <button type="submit">复制</button>
+      <button id="copyBtn">无个人业绩复制</button>
     </form>
   </div>
 
@@ -98,6 +104,69 @@
     const form = document.querySelector('.form');
     const inputs = document.querySelectorAll('.form input');
     const submitBtn = document.querySelector('.form button');
+    const copyBtn = document.querySelector('#copyBtn');
+
+    copyBtn.addEventListener('click', () => {
+      // 阻止表单默认的提交行为
+      event.preventDefault();
+      // 获取输入框的值
+      const input1Value = inputs[0].value;
+      const input2Value = inputs[1].value;
+      const input3Value = inputs[2].value;
+      const input4Value = inputs[3].value;
+      const input5Value = inputs[4].value;
+      const input6Value = inputs[5].value;
+      const input7Value = inputs[6].value;
+      // 计算销售达成率和串联率
+      const saleRate = input2Value / input1Value;
+      const combineRate = input4Value / input3Value;
+      // 获取当前日期
+      const date = new Date();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      const today = `${month}月${day}日`;
+
+      // 创建新表单元素
+      const newForm = document.createElement('form');
+      newForm.classList.add('form');
+
+      // 创建新结果元素
+      const resultElem = document.createElement('div');
+      resultElem.innerHTML = `<p>熙地港native专柜</p>
+<p>${today}</p>
+<p>今日目标：${input1Value}</p>
+<p>今日销售：${input2Value}</p>
+<p>今日达成率：${(saleRate * 100).toFixed(2)}%</p>
+<p>销售笔数：${input3Value}</p>
+<p>销售件数：${input4Value}</p>
+<p>串联：${combineRate}</p>
+<p>销售总件数：${input5Value}</p>
+<p>月销售累计金额：${input6Value}</p>`;
+
+      // 将结果元素添加到新表单元素中
+      newForm.appendChild(resultElem);
+      // 将新表单设置为垂直方向
+      newForm.style.display = 'flex';
+      newForm.style.flexDirection = 'column';
+      // 在原表单元素下方添加新表单元素
+      form.insertAdjacentElement('afterend', newForm);
+      const resultText = resultElem.textContent;
+      // 创建一个临时文本元素
+      const tempElem = document.createElement('textarea');
+      tempElem.value = resultText;
+      document.body.appendChild(tempElem);
+
+      // 将临时文本元素中的文本复制到剪贴板中
+      tempElem.select();
+      document.execCommand('copy');
+
+      // 在不需要时移除临时元素
+      document.body.removeChild(tempElem);
+
+      // 显示提示信息
+      alert('已复制');
+    })
+    // 与提交按钮单击事件监听器中的代码类似
 
     // 给提交按钮添加点击事件监听器
     submitBtn.addEventListener('click', (event) => {
@@ -129,8 +198,7 @@
 
       // 创建新结果元素
       const resultElem = document.createElement('div');
-      resultElem.innerHTML = `
-<p>熙地港native专柜</p>
+      resultElem.innerHTML = `<p>熙地港native专柜</p>
 <p>${today}</p>
 <p>今日目标：${input1Value}</p>
 <p>今日销售：${input2Value}</p>
@@ -142,8 +210,7 @@
 <p>月销售累计金额：${input6Value}</p>
 <p>个人业绩</p>
 <p>依凡：${input7Value} 累计：${input8Value}</p>
-<p>浩浩：${input9Value} 累计：${input10Value}</p>
-            `;
+<p>浩浩：${input9Value} 累计：${input10Value}</p>`;
 
       // 将结果元素添加到新表单元素中
       newForm.appendChild(resultElem);
@@ -152,23 +219,6 @@
       newForm.style.flexDirection = 'column';
       // 在原表单元素下方添加新表单元素
       form.insertAdjacentElement('afterend', newForm);
-
-      // 复制结果文本到剪贴板
-      /*
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(resultElem.textContent).then(() => {
-          console.log('复制成功');
-          alert('已复制')
-        }, () => {
-          console.log('复制失败');
-          alert('复制失败')
-        });
-      } else {
-        console.log('不支持复制！');
-        alert('浏览器不支持复制')
-      }
-      */
-
       const resultText = resultElem.textContent;
       // 创建一个临时文本元素
       const tempElem = document.createElement('textarea');
