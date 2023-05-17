@@ -1,138 +1,136 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Hi Native!</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f5eef1;
+      }
 
-<head>
-  <title>Hi Native!</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #f5eef1;
-    }
+      .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-    .container {
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+      .form {
+        width: 300px;
+        background-color: rgba(255, 255, 255, 0.6);
+        padding: 20px;
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+      }
 
-    .form {
-      width: 300px;
-      background-color: rgba(255, 255, 255, 0.6);
-      padding: 20px;
-      border-radius: 10px;
-      backdrop-filter: blur(5px);
-    }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+      }
 
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-    }
+      button {
+        background-color: #ff93ad;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+      }
 
-    button {
-      background-color: #ff93ad;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      display: block;
-      margin: 0 auto;
-    }
-
-    #copyBtn {
-      margin-top: 10px;
-    }
+      #copyBtn {
+        margin-top: 10px;
+      }
 
 
-    .form+.form {
-      margin-top: 20px;
-    }
+      .form+.form {
+        margin-top: 20px;
+      }
 
-    .container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+      .container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-    .form {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
-    }
-  </style>
-</head>
+      .form {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
 
-<body>
+  <body>
+    <div class="container">
+      <form class="form">
+        <h2 style="text-align: center;">无聊产物v0.3</h2>
+        <input type="text" id="input-1" placeholder="今日目标" />
+        <input type="text" id="input-2" placeholder="今日销量" />
+        <input type="text" id="input-3" placeholder="销售笔数" />
+        <input type="text" id="input-4" placeholder="销售件数" />
+        <input type="text" id="input-5" placeholder="销售总件数" />
+        <input type="text" id="input-6" placeholder="月销售金额" />
+        <input type="text" id="input-7" placeholder="(选填) 依凡今日" />
+        <input type="text" id="input-8" placeholder="(选填) 累计" />
+        <input type="text" id="input-9" placeholder="(选填) 浩浩今日" />
+        <input type="text" id="input-10" placeholder="(选填) 累计" />
+        <button type="submit">复制</button>
+        <button id="copyBtn">无个人业绩复制</button>
+      </form>
+    </div>
 
-  <div class="container">
-    <form class="form">
-      <h2 style="text-align: center;">无聊产物v0.3</h2>
-      <input type="text" id="input-1" placeholder="今日目标">
-      <input type="text" id="input-2" placeholder="今日销量">
-      <input type="text" id="input-3" placeholder="销售笔数">
-      <input type="text" id="input-4" placeholder="销售件数">
-      <input type="text" id="input-5" placeholder="销售总件数">
-      <input type="text" id="input-6" placeholder="月销售金额">
-      <input type="text" id="input-7" placeholder="依凡今日">
-      <input type="text" id="input-8" placeholder="累计">
-      <input type="text" id="input-9" placeholder="浩浩今日">
-      <input type="text" id="input-10" placeholder="累计">
-      <button type="submit">复制</button>
-      <button id="copyBtn">无个人业绩复制</button>
-    </form>
-  </div>
+    <script>
+      // 获取表单元素
+      const form = document.querySelector(".form");
+      const inputs = document.querySelectorAll(".form input");
+      const submitBtn = document.querySelector(".form button");
+      const copyBtn = document.querySelector("#copyBtn");
 
-  <script>
-    // 获取表单元素
-    const form = document.querySelector('.form');
-    const inputs = document.querySelectorAll('.form input');
-    const submitBtn = document.querySelector('.form button');
-    const copyBtn = document.querySelector('#copyBtn');
+      copyBtn.addEventListener("click", () => {
+        // 阻止表单默认的提交行为
+        event.preventDefault();
+        // 获取输入框的值
+        const input1Value = inputs[0].value;
+        const input2Value = inputs[1].value;
+        const input3Value = inputs[2].value;
+        const input4Value = inputs[3].value;
+        const input5Value = inputs[4].value;
+        const input6Value = inputs[5].value;
+        const input7Value = inputs[6].value;
+        // 计算销售达成率和串联率
+        const saleRate = input2Value / input1Value;
+        const combineRate = input4Value / input3Value;
+        // 获取当前日期
+        const date = new Date();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const today = `${month}月${day}日`;
 
-    copyBtn.addEventListener('click', () => {
-      // 阻止表单默认的提交行为
-      event.preventDefault();
-      // 获取输入框的值
-      const input1Value = inputs[0].value;
-      const input2Value = inputs[1].value;
-      const input3Value = inputs[2].value;
-      const input4Value = inputs[3].value;
-      const input5Value = inputs[4].value;
-      const input6Value = inputs[5].value;
-      const input7Value = inputs[6].value;
-      // 计算销售达成率和串联率
-      const saleRate = input2Value / input1Value;
-      const combineRate = input4Value / input3Value;
-      // 获取当前日期
-      const date = new Date();
-      const month = date.getMonth() + 1;
-      const day = date.getDate();
-      const today = `${month}月${day}日`;
+        // 创建新表单元素
+        const newForm = document.createElement("form");
+        newForm.classList.add("form");
 
-      // 创建新表单元素
-      const newForm = document.createElement('form');
-      newForm.classList.add('form');
-
-      // 创建新结果元素
-      const resultElem = document.createElement('div');
-      resultElem.innerHTML = `<p>熙地港native专柜</p>
+        // 创建新结果元素
+        const resultElem = document.createElement("div");
+        resultElem.innerHTML = `<p>熙地港native专柜</p>
 <p>${today}</p>
 <p>今日目标：${input1Value}</p>
 <p>今日销售：${input2Value}</p>
@@ -143,62 +141,62 @@
 <p>销售总件数：${input5Value}</p>
 <p>月销售累计金额：${input6Value}</p>`;
 
-      // 将结果元素添加到新表单元素中
-      newForm.appendChild(resultElem);
-      // 将新表单设置为垂直方向
-      newForm.style.display = 'flex';
-      newForm.style.flexDirection = 'column';
-      // 在原表单元素下方添加新表单元素
-      form.insertAdjacentElement('afterend', newForm);
-      const resultText = resultElem.textContent;
-      // 创建一个临时文本元素
-      const tempElem = document.createElement('textarea');
-      tempElem.value = resultText;
-      document.body.appendChild(tempElem);
+        // 将结果元素添加到新表单元素中
+        newForm.appendChild(resultElem);
+        // 将新表单设置为垂直方向
+        newForm.style.display = "flex";
+        newForm.style.flexDirection = "column";
+        // 在原表单元素下方添加新表单元素
+        form.insertAdjacentElement("afterend", newForm);
+        const resultText = resultElem.textContent;
+        // 创建一个临时文本元素
+        const tempElem = document.createElement("textarea");
+        tempElem.value = resultText;
+        document.body.appendChild(tempElem);
 
-      // 将临时文本元素中的文本复制到剪贴板中
-      tempElem.select();
-      document.execCommand('copy');
+        // 将临时文本元素中的文本复制到剪贴板中
+        tempElem.select();
+        document.execCommand("copy");
 
-      // 在不需要时移除临时元素
-      document.body.removeChild(tempElem);
+        // 在不需要时移除临时元素
+        document.body.removeChild(tempElem);
 
-      // 显示提示信息
-      alert('已复制');
-    })
-    // 与提交按钮单击事件监听器中的代码类似
+        // 显示提示信息
+        alert("已复制");
+      });
+      // 与提交按钮单击事件监听器中的代码类似
 
-    // 给提交按钮添加点击事件监听器
-    submitBtn.addEventListener('click', (event) => {
-      // 阻止表单默认的提交行为
-      event.preventDefault();
-      // 获取输入框的值
-      const input1Value = inputs[0].value;
-      const input2Value = inputs[1].value;
-      const input3Value = inputs[2].value;
-      const input4Value = inputs[3].value;
-      const input5Value = inputs[4].value;
-      const input6Value = inputs[5].value;
-      const input7Value = inputs[6].value;
-      const input8Value = inputs[7].value;
-      const input9Value = inputs[8].value;
-      const input10Value = inputs[9].value;
-      // 计算销售达成率和串联率
-      const saleRate = input2Value / input1Value;
-      const combineRate = input4Value / input3Value;
-      // 获取当前日期
-      const date = new Date();
-      const month = date.getMonth() + 1;
-      const day = date.getDate();
-      const today = `${month}月${day}日`;
+      // 给提交按钮添加点击事件监听器
+      submitBtn.addEventListener("click", (event) => {
+        // 阻止表单默认的提交行为
+        event.preventDefault();
+        // 获取输入框的值
+        const input1Value = inputs[0].value;
+        const input2Value = inputs[1].value;
+        const input3Value = inputs[2].value;
+        const input4Value = inputs[3].value;
+        const input5Value = inputs[4].value;
+        const input6Value = inputs[5].value;
+        const input7Value = inputs[6].value;
+        const input8Value = inputs[7].value;
+        const input9Value = inputs[8].value;
+        const input10Value = inputs[9].value;
+        // 计算销售达成率和串联率
+        const saleRate = input2Value / input1Value;
+        const combineRate = input4Value / input3Value;
+        // 获取当前日期
+        const date = new Date();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const today = `${month}月${day}日`;
 
-      // 创建新表单元素
-      const newForm = document.createElement('form');
-      newForm.classList.add('form');
+        // 创建新表单元素
+        const newForm = document.createElement("form");
+        newForm.classList.add("form");
 
-      // 创建新结果元素
-      const resultElem = document.createElement('div');
-      resultElem.innerHTML = `<p>熙地港native专柜</p>
+        // 创建新结果元素
+        const resultElem = document.createElement("div");
+        resultElem.innerHTML = `<p>熙地港native专柜</p>
 <p>${today}</p>
 <p>今日目标：${input1Value}</p>
 <p>今日销售：${input2Value}</p>
@@ -212,33 +210,29 @@
 <p>依凡：${input7Value} 累计：${input8Value}</p>
 <p>浩浩：${input9Value} 累计：${input10Value}</p>`;
 
-      // 将结果元素添加到新表单元素中
-      newForm.appendChild(resultElem);
-      // 将新表单设置为垂直方向
-      newForm.style.display = 'flex';
-      newForm.style.flexDirection = 'column';
-      // 在原表单元素下方添加新表单元素
-      form.insertAdjacentElement('afterend', newForm);
-      const resultText = resultElem.textContent;
-      // 创建一个临时文本元素
-      const tempElem = document.createElement('textarea');
-      tempElem.value = resultText;
-      document.body.appendChild(tempElem);
+        // 将结果元素添加到新表单元素中
+        newForm.appendChild(resultElem);
+        // 将新表单设置为垂直方向
+        newForm.style.display = "flex";
+        newForm.style.flexDirection = "column";
+        // 在原表单元素下方添加新表单元素
+        form.insertAdjacentElement("afterend", newForm);
+        const resultText = resultElem.textContent;
+        // 创建一个临时文本元素
+        const tempElem = document.createElement("textarea");
+        tempElem.value = resultText;
+        document.body.appendChild(tempElem);
 
-      // 将临时文本元素中的文本复制到剪贴板中
-      tempElem.select();
-      document.execCommand('copy');
+        // 将临时文本元素中的文本复制到剪贴板中
+        tempElem.select();
+        document.execCommand("copy");
 
-      // 在不需要时移除临时元素
-      document.body.removeChild(tempElem);
+        // 在不需要时移除临时元素
+        document.body.removeChild(tempElem);
 
-      // 显示提示信息
-      alert('已复制');
-
-
-    });
-  </script>
-
-</body>
-
+        // 显示提示信息
+        alert("已复制");
+      });
+    </script>
+  </body>
 </html>
