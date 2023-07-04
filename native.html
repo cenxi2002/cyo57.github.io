@@ -1,78 +1,84 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>熙地港native专柜</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 30px;
-        }
-        input {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-        }
-        button {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        #output {
-            white-space: pre-wrap;
-            font-size: 14px;
-        }
-    </style>
-</head>
-<body>
-    <h1>熙地港native专柜</h1>
-    <input type="number" id="goal" placeholder="今日目标">
-    <input type="number" id="sales" placeholder="今日销量">
-    <input type="number" id="salesCount" placeholder="销售笔数">
-    <input type="number" id="salesItems" placeholder="销售件数">
-    <input type="number" id="totalItems" placeholder="销售总件数">
-    <input type="number" id="monthlySales" placeholder="月销售金额">
-    <input type="number" id="employee1Today" placeholder="依凡今日">
-    <input type="number" id="employee1Total" placeholder="依凡累计">
-    <input type="number" id="employee2Today" placeholder="浩浩今日">
-    <input type="number" id="employee2Total" placeholder="浩浩累计">
-    <input type="number" id="employee3Today" placeholder="世豪今日">
-    <input type="number" id="employee3Total" placeholder="世豪累计">
-    <button onclick="generateOutput()">生成输出</button>
-    <pre id="output"></pre>
 
-    <script>
-      function generateOutput() {
-          const goal = document.getElementById("goal").value;
-          const sales = document.getElementById("sales").value;
-          const salesCount = document.getElementById("salesCount").value;
-          const salesItems = document.getElementById("salesItems").value;
-          const totalItems = document.getElementById("totalItems").value;
-          const monthlySales = document.getElementById("monthlySales").value;
-          const employee1Today = document.getElementById("employee1Today").value;
-          const employee1Total = document.getElementById("employee1Total").value;
-          const employee2Today = document.getElementById("employee2Today").value;
-          const employee2Total = document.getElementById("employee2Total").value;
-          const employee3Today = document.getElementById("employee3Today").value;
-          const employee3Total = document.getElementById("employee3Total").value;
-  
-          const currentDate = new Date();
-          const month = currentDate.getMonth() + 1;
-          const day = currentDate.getDate();
-          const formattedDate = `${month}月${day}日`;
-  
-          const completionRate = ((sales / goal) * 100).toFixed(2);
-          const combineRate = (salesItems / salesCount).toFixed(2);
-          const output = `熙地港native专柜
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>熙地港native专柜</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #output {
+      white-space: pre-wrap;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>熙地港native专柜</h1>
+  <input type="number" id="goal" placeholder="今日目标">
+  <input type="number" id="sales" placeholder="今日销量">
+  <input type="number" id="salesCount" placeholder="销售笔数">
+  <input type="number" id="salesItems" placeholder="销售件数">
+  <input type="number" id="totalItems" placeholder="销售总件数">
+  <input type="number" id="monthlySales" placeholder="月销售金额">
+  <input type="number" id="employee1Today" placeholder="依凡今日">
+  <input type="number" id="employee1Total" placeholder="依凡累计">
+  <input type="number" id="employee2Today" placeholder="浩浩今日">
+  <input type="number" id="employee2Total" placeholder="浩浩累计">
+  <input type="number" id="employee3Today" placeholder="世豪今日">
+  <input type="number" id="employee3Total" placeholder="世豪累计">
+  <button onclick="generateOutput()">生成输出</button>
+  <pre id="output"></pre>
+
+  <script>
+    function generateOutput() {
+      const goal = document.getElementById("goal").value;
+      const sales = document.getElementById("sales").value;
+      const salesCount = document.getElementById("salesCount").value;
+      const salesItems = document.getElementById("salesItems").value;
+      const totalItems = document.getElementById("totalItems").value;
+      const monthlySales = document.getElementById("monthlySales").value;
+      const employee1Today = document.getElementById("employee1Today").value;
+      const employee1Total = document.getElementById("employee1Total").value;
+      const employee2Today = document.getElementById("employee2Today").value;
+      const employee2Total = document.getElementById("employee2Total").value;
+      const employee3Today = document.getElementById("employee3Today").value;
+      const employee3Total = document.getElementById("employee3Total").value;
+
+      const currentDate = new Date();
+      const month = currentDate.getMonth() + 1;
+      const day = currentDate.getDate();
+      const formattedDate = `${month}月${day}日`;
+
+      const completionRate = ((sales / goal) * 100).toFixed(2);
+      const combineRate = (salesItems / salesCount).toFixed(2);
+      const output = `熙地港native专柜
 ${formattedDate}
 今日目标：${goal}
 今日销售：${sales}
@@ -86,19 +92,28 @@ ${formattedDate}
 依凡：${employee1Today} 累计：${employee1Total}
 浩浩：${employee2Today} 累计：${employee2Total}
 世豪：${employee3Today} 累计：${employee3Total}`;
-  
-          document.getElementById("output").textContent = output;
-  
-          // 复制输出文本到剪贴板
-          navigator.clipboard.writeText(output)
-              .then(() => {
-                  alert("输出已复制到剪贴板");
-              })
-              .catch((error) => {
-                  console.error("复制到剪贴板失败:", error);
-              });
-      }
+
+      document.getElementById("output").textContent = output;
+
+      // 创建隐藏的文本输入框
+      const textarea = document.createElement("textarea");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = 0;
+      textarea.value = output;
+      document.body.appendChild(textarea);
+
+      // 执行复制操作
+      textarea.select();
+      textarea.setSelectionRange(0, output.length);
+      document.execCommand("copy");
+
+      // 移除文本输入框
+      document.body.removeChild(textarea);
+
+      alert("输出已复制到剪贴板");
+    }
   </script>
-  
+
 </body>
+
 </html>
