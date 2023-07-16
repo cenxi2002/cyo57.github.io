@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Math Problems Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #problem {
+      margin-bottom: 15px;
+    }
+
+    #problems {
+      border-radius: 5px;
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>20以内的加减法题目生成器</h1>
+  输入题目数量：<input type="number" id="numProblems" min="1" max="100" value="1">
+  <button onclick="generateProblems()">生成题目</button>
+  <div id="problems"></div>
+
+  <script>
+    function generateProblems() {
+      var numProblems = document.getElementById('numProblems').value;
+      document.getElementById('problems').innerHTML = '';
+
+      for (var i = 0; i < numProblems; i++) {
+        generateProblem();
+      }
+    }
+
+    function generateProblem() {
+      var x, y, z, operation1, operation2, result;
+      do {
+        x = Math.floor(Math.random() * 21);
+        y = Math.floor(Math.random() * 21);
+        operation1 = Math.random() < 0.5 ? ' + ' : ' - ';
+        operation2 = Math.random() < 0.5 ? ' + ' : ' - ';
+        if (operation1 === ' + ' && operation2 === ' + ') {
+          z = 20 - x - y;
+        } else if (operation1 === ' - ' && operation2 === ' - ') {
+          z = x - y;
+        } else if (operation1 === ' + ' && operation2 === ' - ') {
+          z = 20 - x + y;
+        } else {
+          z = x + y;
+        }
+        z = Math.max(0, Math.min(20, z));
+        result = eval(x + operation1 + y + operation2 + z);
+      } while (result < 0 || result > 20 || x > 20 || y > 20 || z > 20);
+
+      var missing = Math.floor(Math.random() * 3);
+      var problem;
+      if (missing === 0) {
+        problem = '( )' + operation1 + y + operation2 + z + ' = ' + result;
+      } else if (missing === 1) {
+        problem = x + operation1 + '( )' + operation2 + z + ' = ' + result;
+      } else {
+        problem = x + operation1 + y + operation2 + '( ) = ' + result;
+      }
+
+      var problemElement = document.createElement('p');
+      problemElement.textContent = problem;
+      document.getElementById('problems').appendChild(problemElement);
+    }
+  </script>
+</body>
+</html>
