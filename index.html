@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>蒿里米</title>
+    <title>懒得改标题</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="icon" type="image/ico" href="img/icon.png">
 </head>
@@ -16,13 +16,13 @@
         <div id="touxiang">
             <img src="img/t1.jpg" onmouseover="this.src='../img/t3.jpg'" onmouseout="this.src='../img/t1.jpg'" alt="米米"
                 id="img1" draggable="false">
-            <img id="love" src="img/love.svg" draggable="false">
-            <img src="img/t2.jpg" onmouseover="this.src='../img/t3.jpg'" onmouseout="this.src='../img/t2.jpg'" alt="蒿里"
-                id="img2" draggable="false">
+            <!--<img id="love" src="img/love.svg" draggable="false">
+            <img src="img/t2.jpg" onmouseover="this.src='../img/t3.jpg'" onmouseout="this.src='../img/t2.jpg'" alt="泽泽"
+                id="img2" draggable="false">-->
         </div>
         <div id="name">
             <span class="name-style" id="name1">米米</span>
-            <span class="name-style" id="name2">蒿里</span>
+            <!--<span class="name-style" id="name2">泽泽</span>-->
         </div>
         <!-- 计时器 -->
         <div id="time">
@@ -54,7 +54,7 @@
             <div class="smallbox" id="sb4">
                 <a href="video.html">
                     <img src="img/camera.svg" class="icon" draggable="false">
-                    视频(还没做呢💔)
+                    视频
                 </a>
             </div>
         </div>
@@ -65,7 +65,7 @@
         //计时器
         function timingTime() {
             // 开始时间 格式： 年-月-日 00:00:00
-            let start = '2024-2-12 04:53:00'
+            let start = '2023-4-10 12:00:00'
             let startTime = new Date(start.replace(/-/g, '/')).getTime()
             let currentTime = new Date().getTime()
             let difference = currentTime - startTime
@@ -76,7 +76,7 @@
             let s = Math.floor(f / 60) // 小时
             let ss = s % 24
             let day = Math.floor(s / 24) // 天数
-            return "已经💔<br>" +
+            return "已经♥<br>" +
                 " <font color=#FF5722>" + day + "</font> 天" +
                 " <font color=#FFA000>" + ss + "</font> 小时" +
                 " <font color=#03A9F4>" + ff + "</font> 分钟" +
