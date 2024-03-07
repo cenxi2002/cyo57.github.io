@@ -41,7 +41,7 @@ $(function () {
       }
 
       $.ajax({
-         url: "http://hnjm.api.cloudyshore.top/score/" + name,
+         url: "https://hnjmapi.cloudyshore.top/score/" + name,
          type: "GET",
          success: function (data) {
             var scoreSimple = data.score_simple;
