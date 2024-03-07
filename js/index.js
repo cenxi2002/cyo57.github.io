@@ -58,7 +58,7 @@ $(function () {
             $(".materialContainer").append(resultDiv);
          },
          error: function () {
-            alert("查询失败，请重试");
+            alert("查询失败，未找到相关学号信息");
          }
       });
    });
@@ -74,7 +74,7 @@ $(function () {
       }
 
       $.ajax({
-         url: "http://hnjm.api.cloudyshore.top/dorm_stars/" + regname,
+         url: "https://hnjmapi.cloudyshore.top/dorm_stars/" + regname,
          type: "GET",
          success: function(data) {
             var scoreMore = data.score_more;
@@ -82,7 +82,7 @@ $(function () {
         },
         
          error: function () {
-            alert("查询失败，请重试");
+            alert("查询失败，未找到相关宿舍号信息");
          }
       });
    });
