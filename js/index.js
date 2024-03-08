@@ -87,6 +87,11 @@ $(function () {
       });
    });
 
+   //id dowork被点击时跳转baidu
+   $("#dowork").click(function () {
+      window.location.href = "https://gitee.com/cyo57/hnjm-dowork";
+   });
+
 
 
 
