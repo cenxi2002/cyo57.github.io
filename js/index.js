@@ -44,6 +44,7 @@ $(function () {
          url: "https://hnjmapi.cloudyshore.top/score/" + name,
          type: "GET",
          success: function (data) {
+            alert(JSON.stringify(data["score_simple"], null, 4))
             var scoreSimple = data.score_simple;
             var scoreSimpleArray = Object.entries(scoreSimple);
 
