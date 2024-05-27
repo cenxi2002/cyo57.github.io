@@ -7,7 +7,7 @@ $(function () {
             "line-height": "18px",
             "font-size": "18px",
             "font-weight": "100",
-            "top": "0px"
+            "top": "25px"
          })
          $(".spin", this).css({
             "width": "100%"
@@ -30,9 +30,37 @@ $(function () {
       }
    });
 
-   $(".button.login").click(function (e) {
-      e.preventDefault();
+   $(".select select").on("change", function() {
+         
+      let selectedOption = $(this).find(":selected");
+      let index = selectedOption.index();
+      let yearPart = "";
+     switch (index) {
+      case 0:
+         yearPart = `20231`; 
+         break;
+         case 1:
+            yearPart = `20232`; 
+            break;
+            case 2:
+               yearPart = `20241`; 
+               break;
+               case 3:
+                  yearPart = `20242`; 
+                  break;
+      default:
+         yearPart = `20231`; 
+         break;
+     }
+     m = parseInt(yearPart);
 
+      
+  });
+
+
+   $(".input .but1").click(function (e) {
+      e.preventDefault();
+      $(".select select").trigger("change");
       var name = $("#name").val();
 
       if (name.trim() === "") {
@@ -41,20 +69,33 @@ $(function () {
       }
 
       $.ajax({
-         url: "https://hnjmapi.cloudyshore.top/score/" + name,
+         url: "https://hnjmapi.cloudyshore.top/score/" + name ,
          type: "GET",
          success: function (data) {
             alert(JSON.stringify(data["score_simple"], null, 4))
-            var scoreSimple = data.score_simple;
-            var scoreSimpleArray = Object.entries(scoreSimple);
+            var scoreSimple = data.score_simple.data;
+            // var scoreSimpleArray = Object.entries(scoreSimple);
 
-            var resultDiv = $("<div class='result' align='center'></div>");
 
-            scoreSimpleArray.forEach(function (pair) {
-               var key = pair[0];
-               var value = pair[1];
-               resultDiv.append("<div class=''>" + key + ": " + value + "</div>");
+
+          scoreSimple.forEach(function (pair) {
+            console.log(pair);
+               var value = pair.积分;
+               var key = pair.积分类别;
+               $('.table-container').append(`        <table>
+               <tbody>
+                   <tr class="tr">
+                       <td>${key}：</td>
+                       <td>${value}</td>
+                       <td><button class="but2">删除</button></td>
+                   </tr>
+               </tbody>
+           </table>`);
             });
+      $('td').click(function(){
+         $(this).parents('.tr').remove()
+
+      })
 
             $(".materialContainer").append(resultDiv);
          },

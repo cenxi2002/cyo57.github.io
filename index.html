@@ -1,83 +1,49 @@
-﻿<!DOCTYPE html>
-<html lang="zh-CN">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>硕硕查</title>
-	<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style_eduhub.css">
-	<!-- 设置一个icon -->
-	<link rel="icon" href="img/icon.ico">
-	<!-- 百度统计 -->
-
-	<script>
-		var _hmt = _hmt || [];
-		(function () {
-			var hm = document.createElement("script");
-			hm.src = "https://hm.baidu.com/hm.js?3eedbcbfd12d7297d238ab910faadc9a";
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(hm, s);
-		})();
-	</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="./css/index.css">
+   <script src="./js/jquery.min.js"></script>
+   <script src="./js/index.js"></script>
 
 </head>
-
 <body>
-	<div class="materialContainer">
-		<div class="box">
-			<div class="title">硕硕查</div>
-			<div class="input">
-				<label for="name">学号</label>
-				<input type="text" name="name" id="name">
-				<span class="spin"></span>
-			</div>
-			<div class="button login">
-				<button id="queryButton">
-					<span>查询</span>
-					<i class="fa fa-check"></i>
-				</button>
-				<div id="result"></div>
-			</div>
-			<div id="dowork" class="button" style="margin: auto;">
-				<button id="doworkButton">
-					<span>对对答案</span>
-					<i class="fa fa-book"></i>
-				</button>
-				<div id="result"></div>
-			</div>
-		</div>
+ <div class="father">
+    <div class="nav">
+        <h1>硕硕查</h1>
+        <ul class=".ul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#"> 学分查询页</a></li>
+            <li><a href="#"> 宿舍积分查询</a></li>
+            <li><a href="#"> 假条申请页</a></li>
+            <li><a href="#"> 绑定微信</a></li>
+        </ul>
+        <div class="button">
+        <button>登录</button>
+        <button>注册</button>
+    </div>
+    </div>
+    <div class="center">
+       <div class="wenzi">
+        <h1> 学分查询</h1>
+        <p>请输入学号和进行学分查询</p>
+       </div>
+      <div class="input"> <input type="text" name="name" id="name" placeholder="请输入学号"><button class="but1">查询</button></div>
+      <div class="table-container">
+        
+    </div>
+    </div>
+    <div class="bottom">
+       <hr>
+<img src="https://img2.imgtp.com/2024/05/25/2uH7EOjQ.png" title="微信">
+<img src="https://img2.imgtp.com/2024/05/25/Wpt2dZ7Q.png" title="微博">
+<footer class="footer"><p>&copy;2024产品版权所有。保留所有权利 <span class="t1"><a href="#">隐私政策</a></span><span class="t1"><a href="#">服务条款</a></span><span class="t1"><a href="#">Cookie设置</a></span></p></footer>
+<p></p>
+    </div>
 
-		<div class="overbox">
-			<div class="material-button alt-2">
-				<span class="shape"></span>
-			</div>
-			<div class="title">更多查...(硕硕硕硕查)</div>
-			<div class="input">
-				<label for="regname">宿舍号</label>
-				<input type="text" name="regname" id="regname">
-				<span class="spin"></span>
-			</div>
-			<div class="input">
-				<label for="regname">出校申请（开发中）</label>
-				<input type="text" name="" id="">
-				<span class="spin"></span>
-			</div>
-
-			<div class="button dorm query">
-				<button id="queryDormButton">
-					<span>查询</span>
-				</button>
-			</div>
-		</div>
-		<div class="button">
-			<a href="index.html" style="color: azure;">With Haoli</a>
-		</div>
-	</div>
-
-	<script src="js/jquery.min.js"></script>
-	<script src="js/index.js"></script>
-
-
+ </div>
 </body>
-
 </html>
