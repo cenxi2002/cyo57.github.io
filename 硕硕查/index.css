@@ -1,0 +1,138 @@
+*{
+    margin: 0 auto;
+    padding: 0 auto;
+}
+.father{
+    width: 100%;
+    background-color: #fff;  
+    position: relative;
+}
+.nav{
+    margin-top: 60px;
+    width:1440px;
+    height: 79px;
+    display: flex;
+    position: relative; 
+}
+.nav h1{
+    margin-left: 79px;
+    margin-right: 256px;
+}
+.nav ul{
+    display: flex; /* 让列表项水平排列 */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.nav li{
+    margin-right: 20px; /* 根据需要调整列表项之间的间距 */
+}
+.nav a:link, .nav a:visited{
+    color: black;
+    text-decoration: none;
+}
+.nav a:hover{
+    color: blue;
+}
+.button button{
+    margin-left: 386px;
+    width: 98px;
+    height: 54px;
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #007BFF; /* 示例颜色 */
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.center{
+width: 1440px;
+height: 326px;
+text-align: center;
+/* padding-top: 72px; */
+padding: 80px 80px 80px 80px;
+
+}
+.center .input{
+    border: 2px solid rgb(242, 243, 245);
+    border-radius: 20px;
+    width: 760px;
+    background: rgba(242, 243, 245, 1);
+height: 60px;
+}
+.wenzi{
+    margin-top: 30px;
+}
+.wenzi h1{
+    font-size: 56px;
+font-weight: 700;
+letter-spacing: 0px;
+}
+.wenzi p{
+    font-size: 18px;
+font-weight: 400;
+letter-spacing: 0px;
+line-height: 28px;
+color: rgba(29, 33, 41, 1);
+}
+.input{
+    margin-top: 60px;
+}
+.input input{
+    width: 556px;
+    border-radius: 20px;
+    background: rgba(242, 243, 245, 1);
+    font-size: 16px;
+font-weight: 400;
+letter-spacing: 0px;
+line-height: 60px;
+float: left;
+border: none; 
+outline: none; 
+}
+.input .but1{
+    border: #007BFF;
+background-color: #007BFF;
+float: right;
+width: 96px;
+height: 44px;
+opacity: 1;
+border-radius: 228px;
+margin-top: 7px;
+margin-right: 5px;
+color: rgba(255, 255, 255, 1);
+font-size: 20px;
+font-weight: 400;
+}
+.bottom{
+    width: 1440px;
+height: 100px;
+padding: 80px 80px 80px 80px;
+}
+.span{
+    border: 10px solid red;
+    width: 300px;
+    height: 200px;
+}
+.bottom img{
+    margin-top: 32px;
+    width: 40px;
+    width: 40px;
+}
+.bottom .t1{
+    float: right;
+    margin-right: 20px;
+}
+.bottom .footer{
+    margin-top: 20px;
+}
+.bottom a:link{
+    color: black;
+    text-decoration: none;
+}
+.bottom a:hover{
+    color: #007BFF;
+    text-decoration: none;
+
+}
